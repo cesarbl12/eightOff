@@ -20,23 +20,12 @@ public class Carta implements Comparable<Carta> {
         return Integer.compare(this.rango.getValor(), otra.rango.getValor());
     }
 
-    // --- MÉTODOS DE LÓGICA DEL JUEGO ---
-
-    /**
-     * Verifica si esta carta puede ir sobre 'otra' en el tableau (Regla de Eight Off).
-     * (Mismo palo, un rango menor)
-     */
     public boolean esAnteriorMismoPalo(Carta otra) {
         if (otra == null) return false;
-
         return this.palo == otra.palo &&
                 this.rango.getValor() == otra.rango.getValor() - 1;
     }
 
-    /**
-     * Verifica si esta carta puede ir sobre 'otra' en la fundación.
-     * (Mismo palo, un rango mayor)
-     */
     public boolean esSiguienteMismoPalo(Carta otra) {
         if (otra == null && this.rango == Rango.AS) {
             return true;
@@ -45,7 +34,6 @@ public class Carta implements Comparable<Carta> {
                 this.palo == otra.palo &&
                 this.rango.getValor() == otra.rango.getValor() + 1;
     }
-
 
     @Override
     public String toString() {

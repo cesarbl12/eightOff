@@ -24,16 +24,13 @@ public class DragDropHandler {
     }
 
     public void vincularEventos() {
-        // 1. Vincular Fuentes (Celdas y Cartas Superiores del Tableau)
         for (CeldaVista cv : vista.getCeldasReservaVista()) {
             vincularFuenteDrag(cv, cv.getTipo(), cv.getIndice());
         }
         for (ColumnaTableauVista tv : vista.getTableauVista()) {
-            // Se vincula a la columna, pero se activa sobre la carta superior
             vincularFuenteDrag(tv, tv.getTipo(), tv.getIndice());
         }
 
-        // 2. Vincular Destinos (Celdas, Fundaciones y Columnas)
         for (CeldaVista cv : vista.getCeldasReservaVista()) {
             vincularDestinoDrop(cv, cv.getTipo(), cv.getIndice());
         }
@@ -85,7 +82,6 @@ public class DragDropHandler {
                 TipoLugar origenTipo = TipoLugar.valueOf(parts[0]);
                 int origenIndice = Integer.parseInt(parts[1]);
 
-                // Llama al método de 4 parámetros
                 exito = modelo.intentarMover(origenTipo, origenIndice, destinoTipo, destinoIndice);
 
                 if (exito) {

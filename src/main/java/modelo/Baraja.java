@@ -10,7 +10,6 @@ public class Baraja {
         reiniciar();
     }
 
-    // Llena la baraja con 52 cartas
     public void reiniciar() {
         cartas = new ListaDobleCircular<>();
         for (Palo palo : Palo.values()) {
